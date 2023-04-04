@@ -1,7 +1,7 @@
 # Asp.Net-User-Role-Membership-Example
-Asp.Net Core Mvc Ejemplo de implementación completa de rol de usuario y membresía
+Asp.Net 5 Prueba tecnica
 
-![userrolemembership1](coderush/wwwroot/images/scm3.png)
+![userrolemembership1](https://github.com/choquidownn25/Browser-Travel/blob/main/imagen/Api.jpg)
 ![userrolemembership1](coderush/wwwroot/images/scm2.png)
 
 
@@ -11,18 +11,17 @@ Asp.Net Core Mvc Ejemplo de implementación completa de rol de usuario y membres
 - EF / Entity Framework
 - Code First
 - C#
-- Beautiful Bootstrap
-- Web API + JQuery
+- Web API 
 - SendGrid
 - Upload Profile Picture
 - Edit Profile
 - Change Password
-- Users, Roles and Memberships
+
 
 
 # Development Tools & Environment
 
-- **Visual Studio 2017 (Community Edition)**. (https://visualstudio.microsoft.com/) 
+- **Visual Studio 2022 (Community Edition)**. (https://visualstudio.microsoft.com/) 
 - **Syncfusion JQuery Controls EJ1 (Community Edition)**. (https://www.syncfusion.com/products/communitylicense)
 
 
