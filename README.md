@@ -2,7 +2,7 @@
 Asp.Net 5 Prueba tecnica
 
 ![userrolemembership1](https://github.com/choquidownn25/Browser-Travel/blob/main/imagen/Api.jpg)
-![userrolemembership1](coderush/wwwroot/images/scm2.png)
+
 
 
 # Features
