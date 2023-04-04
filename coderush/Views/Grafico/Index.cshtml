@@ -1,0 +1,288 @@
+﻿@model List<Capa.Conexion.Models.Grafico>
+@{
+    var XLabels = Newtonsoft.Json.JsonConvert.SerializeObject(Model.Select(x => x.Anno).ToList());
+    var YValues = Newtonsoft.Json.JsonConvert.SerializeObject(Model.Select(x => x.Valor).ToList());
+
+    ViewData["Title"] = "Grafico";
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title text-primary"><i class="fa fa-gear"></i> @ViewData["Title"]</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                            title="Collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="chart-container">
+                    <canvas id="chartbar" style="width:100%; height:500px"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chartespacio" style="width:100%; height:50px"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chartnuget" style="width:100%; height:500px"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chartespacio" style="width:100%; height:50px"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chartline" style="width:100%; height:500px"></canvas>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+
+            </div>
+            <!-- /.box-footer-->
+        </div>
+        <!-- /.box -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+@section Styles{
+}
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(function () {
+            var chartName = "chartbar";
+        var ctx = document.getElementById(chartName).getContext('2d');
+        var data = {
+                labels: @Html.Raw(XLabels),
+                datasets: [{
+                    label: "Años",
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 0, 0)',
+                        'rgba(0, 255, 0)',
+                        'rgba(0, 0, 255)',
+                        'rgba(192, 192, 192)',
+                        'rgba(255, 255, 0)',
+                        'rgba(255, 0, 255)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 0, 0)',
+                        'rgba(0, 255, 0)',
+                        'rgba(0, 0, 255)',
+                        'rgba(192, 192, 192)',
+                        'rgba(255, 255, 0)',
+                        'rgba(255, 0, 255)'
+                    ],
+                    borderWidth: 1,
+                    data: @Html.Raw(YValues)
+    }]
+            };
+
+var options = {
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                            beginAtZero: true
+                        },
+                        gridLines: {
+                            display: true,
+                            color: "rgba(255,99,164,0.2)"
+                        }
+}],
+                    xAxes: [{
+                        ticks: {
+                            min: 0,
+                            beginAtZero: true
+                        },
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
+            };
+
+       var myChart = new  Chart(ctx, {
+                options: options,
+                data: data,
+                type:'bar'
+
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        $(function () {
+            var chartName = "chartnuget";
+        var ctx = document.getElementById(chartName).getContext('2d');
+        var data = {
+                labels: @Html.Raw(XLabels),
+                datasets: [{
+                    label: "Años",
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 0, 0)',
+                        'rgba(0, 255, 0)',
+                        'rgba(0, 0, 255)',
+                        'rgba(192, 192, 192)',
+                        'rgba(255, 255, 0)',
+                        'rgba(255, 0, 255)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 0, 0)',
+                        'rgba(0, 255, 0)',
+                        'rgba(0, 0, 255)',
+                        'rgba(192, 192, 192)',
+                        'rgba(255, 255, 0)',
+                        'rgba(255, 0, 255)'
+                    ],
+                    borderWidth: 1,
+                    data: @Html.Raw(YValues)
+    }]
+            };
+
+var options = {
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                            beginAtZero: true
+                        },
+                        gridLines: {
+                            display: true,
+                            color: "rgba(255,99,164,0.2)"
+                        }
+}],
+                    xAxes: [{
+                        ticks: {
+                            min: 0,
+                            beginAtZero: true
+                        },
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
+            };
+
+       var myChart = new  Chart(ctx, {
+                options: options,
+                data: data,
+                type:'pie'
+
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        $(function () {
+            var chartName = "chartline";
+        var ctx = document.getElementById(chartName).getContext('2d');
+        var data = {
+                labels: @Html.Raw(XLabels),
+                datasets: [{
+                    label: "Valores",
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 0, 0)',
+                        'rgba(0, 255, 0)',
+                        'rgba(0, 0, 255)',
+                        'rgba(192, 192, 192)',
+                        'rgba(255, 255, 0)',
+                        'rgba(255, 0, 255)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 0, 0)',
+                        'rgba(0, 255, 0)',
+                        'rgba(0, 0, 255)',
+                        'rgba(192, 192, 192)',
+                        'rgba(255, 255, 0)',
+                        'rgba(255, 0, 255)'
+                    ],
+                    borderWidth: 1,
+                    data: @Html.Raw(YValues)
+    }]
+            };
+
+var options = {
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                            beginAtZero: true
+                        },
+                        gridLines: {
+                            display: true,
+                            color: "rgba(255,99,164,0.2)"
+                        }
+}],
+                    xAxes: [{
+                        ticks: {
+                            min: 0,
+                            beginAtZero: true
+                        },
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
+            };
+
+       var myChart = new  Chart(ctx, {
+                options: options,
+                data: data,
+                type:'line'
+
+            });
+        });
+    </script>
+}

@@ -1,0 +1,70 @@
+﻿@model Capa.Conexion.Models.Costumer
+
+
+@{
+    ViewData["Title"] = "Consultar Cliente";
+
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title text-primary"><i class="fa fa-gear"></i> @ViewData["Title"]</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                            title="Collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="Numero" class="control-label"></label>
+                                <input asp-for="Numero" class="form-control" />
+                                <span asp-validation-for="Numero" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+
+                                    <a class="btn btn-success"><i class="fa fa-plus"></i> Consultar</a>
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+
+            </div>
+            <!-- /.box-footer-->
+        </div>
+        <!-- /.box -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+
+
